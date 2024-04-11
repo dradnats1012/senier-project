@@ -1,0 +1,114 @@
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:62)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:276)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:282)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :resolveMainClassName UP-TO-DATE
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2024-04-11T06:07:56.619Z  INFO 27006 --- [           main] koreatechbus.BusApiApplication           : Starting BusApiApplication using Java 17.0.10 with PID 27006 (/home/ubuntu/bus-senier-project/busApi/build/classes/java/main started by ubuntu in /home/ubuntu/bus-senier-project/busApi)
+2024-04-11T06:07:56.624Z  INFO 27006 --- [           main] koreatechbus.BusApiApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-04-11T06:07:57.941Z  INFO 27006 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-11T06:07:58.068Z  INFO 27006 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 107 ms. Found 5 JPA repository interfaces.
+2024-04-11T06:07:58.897Z  INFO 27006 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-04-11T06:07:58.921Z  INFO 27006 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-11T06:07:58.921Z  INFO 27006 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-11T06:07:59.116Z  INFO 27006 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-11T06:07:59.126Z  INFO 27006 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2408 ms
+2024-04-11T06:07:59.633Z  INFO 27006 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-11T06:07:59.760Z  INFO 27006 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-11T06:07:59.816Z  INFO 27006 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-11T06:08:00.198Z  INFO 27006 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-11T06:08:00.241Z  INFO 27006 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-11T06:08:00.467Z  INFO 27006 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27e21083
+2024-04-11T06:08:00.470Z  INFO 27006 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-11T06:08:02.069Z  INFO 27006 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-11T06:08:02.274Z  INFO 27006 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-11T06:08:03.214Z  WARN 27006 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-11T06:08:04.016Z  INFO 27006 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-04-11T06:08:04.033Z  INFO 27006 --- [           main] koreatechbus.BusApiApplication           : Started BusApiApplication in 8.092 seconds (process running for 8.675)
+2024-04-11T06:17:50.345Z  INFO 27006 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-11T06:17:50.347Z  INFO 27006 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-11T06:17:50.349Z  INFO 27006 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-04-11T06:17:50.391Z ERROR 27006 --- [nio-8080-exec-1] k.exception.GlobalExceptionHandler       : No static resource .
+2024-04-11T06:17:50.526Z ERROR 27006 --- [nio-8080-exec-2] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:17:53.988Z ERROR 27006 --- [nio-8080-exec-4] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:17:57.312Z ERROR 27006 --- [nio-8080-exec-5] k.exception.GlobalExceptionHandler       : No static resource user.
+2024-04-11T06:17:57.467Z ERROR 27006 --- [nio-8080-exec-6] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:17:59.235Z ERROR 27006 --- [nio-8080-exec-7] k.exception.GlobalExceptionHandler       : No static resource users.
+2024-04-11T06:17:59.374Z ERROR 27006 --- [nio-8080-exec-8] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:18:06.597Z ERROR 27006 --- [io-8080-exec-10] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:18:40.340Z ERROR 27006 --- [nio-8080-exec-1] k.exception.GlobalExceptionHandler       : No static resource user/1.
+2024-04-11T06:18:40.573Z ERROR 27006 --- [nio-8080-exec-2] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:23:50.964Z ERROR 27006 --- [nio-8080-exec-3] k.exception.GlobalExceptionHandler       : No static resource user.
+2024-04-11T06:24:38.652Z ERROR 27006 --- [nio-8080-exec-5] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:56:10.838Z ERROR 27006 --- [nio-8080-exec-9] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:56:12.452Z ERROR 27006 --- [nio-8080-exec-1] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:59:29.957Z ERROR 27006 --- [nio-8080-exec-6] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T06:59:53.968Z  INFO 27006 --- [nio-8080-exec-9] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030xd9e0xa80xbe0xb50x0co0x1a0xf4R0x1f0x110xb70xe5{0x8c80x820xef0xde0xbcl;0xba^Ih0xaf0xb7=0xdf# ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-04-11T07:55:34.479Z ERROR 27006 --- [nio-8080-exec-7] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T07:55:59.009Z ERROR 27006 --- [nio-8080-exec-8] k.exception.GlobalExceptionHandler       : No static resource cgi-bin/luci//locale.
+2024-04-11T08:32:16.783Z ERROR 27006 --- [io-8080-exec-10] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T08:33:00.447Z ERROR 27006 --- [nio-8080-exec-2] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T08:43:29.216Z ERROR 27006 --- [nio-8080-exec-4] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T10:09:31.704Z ERROR 27006 --- [io-8080-exec-10] k.exception.GlobalExceptionHandler       : No static resource FD873AC4-CF86-4FED-84EC-4BD59C6F17A7.
+2024-04-11T10:49:32.965Z ERROR 27006 --- [nio-8080-exec-1] k.exception.GlobalExceptionHandler       : No static resource .
+2024-04-11T10:52:51.311Z ERROR 27006 --- [nio-8080-exec-2] k.exception.GlobalExceptionHandler       : No static resource .
+2024-04-11T11:05:18.577Z ERROR 27006 --- [nio-8080-exec-5] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T12:16:30.262Z ERROR 27006 --- [nio-8080-exec-9] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T12:24:06.535Z ERROR 27006 --- [nio-8080-exec-2] k.exception.GlobalExceptionHandler       : No static resource .
+2024-04-11T12:28:14.112Z ERROR 27006 --- [nio-8080-exec-3] k.exception.GlobalExceptionHandler       : No static resource .
+2024-04-11T12:28:22.501Z ERROR 27006 --- [nio-8080-exec-7] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T12:37:05.807Z ERROR 27006 --- [nio-8080-exec-3] k.exception.GlobalExceptionHandler       : No static resource .
+2024-04-11T13:00:41.896Z ERROR 27006 --- [nio-8080-exec-3] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+2024-04-11T13:44:40.488Z ERROR 27006 --- [nio-8080-exec-3] k.exception.GlobalExceptionHandler       : No static resource favicon.ico.
+
+> Task :bootRun FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':bootRun'.
+> Process 'command '/usr/lib/jvm/java-17-openjdk-amd64/bin/java'' finished with non-zero exit value 137
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 7h 53m 58s
+4 actionable tasks: 1 executed, 3 up-to-date
