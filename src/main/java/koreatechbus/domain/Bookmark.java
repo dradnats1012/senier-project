@@ -31,6 +31,10 @@ public class Bookmark {
         this.bus = bus;
     }
 
+    public Long getBusId(){
+        return bus.getBusId();
+    }
+
     public Bookmark() {
 
     }

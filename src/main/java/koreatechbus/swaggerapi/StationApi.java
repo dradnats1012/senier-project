@@ -10,7 +10,7 @@ import koreatechbus.domain.Station;
 import koreatechbus.dto.station.RegisterStationDTO;
 
 @Tag(name = "정류장 api", description = "정류장 api")
-public interface StationApi {
+public interface    StationApi {
     @Operation(summary = "정류장 추가")
     @PostMapping("/register")
     ResponseEntity<Station> registerStation(

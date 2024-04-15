@@ -53,6 +53,14 @@ public class Bus {
 
     }
 
+    public void plusPassengers(){
+        this.passengers += 1;
+    }
+
+    public void minusPassengers(){
+        this.passengers -= 1;
+    }
+
     @PrePersist
     public void prePersist() {
         if (passengers == null) passengers = 0L;
