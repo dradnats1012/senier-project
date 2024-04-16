@@ -24,14 +24,17 @@ public class BookmarkService {
         this.busRepository = busRepository;
     }
 
-    public Bookmark registerBookmark(BookMarkDTO bookMarkDTO) {
+    public Bookmark registerBookmark(BookMarkDTO bookMarkDTO) throws IllegalAccessException {
         User user = userRepository.findByUserId(bookMarkDTO.userId());
         Bus bus = busRepository.findByBusId(bookMarkDTO.busId());
+        if (bookmarkRepository.existsByUserAndBus(user, bus)) {
+            throw new IllegalAccessException("이미 관심노선으로 등록되어 있습니다!");
+        }
+
         bus.plusPassengers();
         busRepository.save(bus);
 
         Bookmark bookmark = new Bookmark(user, bus);
-
         return bookmarkRepository.save(bookmark);
     }
 

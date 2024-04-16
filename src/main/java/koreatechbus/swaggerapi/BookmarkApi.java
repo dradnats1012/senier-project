@@ -16,7 +16,7 @@ public interface BookmarkApi {
     @PostMapping("/register")
     ResponseEntity<Bookmark> registerBookmark(
         @RequestBody BookMarkDTO bookMarkDTO
-    );
+    ) throws IllegalAccessException;
 
     @Operation(summary = "관심노선 등록")
     @PostMapping("/{bookmarkId}")

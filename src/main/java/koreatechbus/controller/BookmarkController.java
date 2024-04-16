@@ -25,7 +25,7 @@ public class BookmarkController implements BookmarkApi {
 
     @PostMapping("/register")
     public ResponseEntity<Bookmark> registerBookmark(
-        @RequestBody BookMarkDTO bookMarkDTO) {
+        @RequestBody BookMarkDTO bookMarkDTO) throws IllegalAccessException {
         return ResponseEntity.ok().body(bookmarkService.registerBookmark(bookMarkDTO));
     }
 
