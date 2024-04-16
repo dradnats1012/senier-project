@@ -35,12 +35,13 @@ public class Post {
     private User user;
 
     @Builder
-    public Post(String title, String content, String postTime, Long postType, User user) {
+    public Post(String title, String content, String postTime, Long postType, User user, String imageUrl) {
         this.title = title;
         this.content = content;
         this.postTime = postTime;
         this.postType = postType;
         this.user = user;
+        this.imageUrl = imageUrl;
     }
 
     public Post() {

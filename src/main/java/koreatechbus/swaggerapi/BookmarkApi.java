@@ -20,7 +20,7 @@ public interface BookmarkApi {
 
     @Operation(summary = "관심노선 등록")
     @PostMapping("/{bookmarkId}")
-    ResponseEntity<Bookmark> deleteBookmark(
+    ResponseEntity<Void> deleteBookmark(
         @PathVariable("bookmarkId") Long bookmarkId
     );
 }

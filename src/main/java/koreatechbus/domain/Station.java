@@ -24,11 +24,15 @@ public class Station {
     @JoinColumn(name = "bus_id")
     private Bus bus;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @Builder
-    public Station(String stationName, String arrivalTime, Bus bus) {
+    public Station(String stationName, String arrivalTime, Bus bus, String imageUrl) {
         this.stationName = stationName;
         this.arrivalTime = arrivalTime;
         this.bus = bus;
+        this.imageUrl = imageUrl;
     }
 
     public Station() {
