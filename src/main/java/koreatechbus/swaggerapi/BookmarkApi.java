@@ -1,6 +1,7 @@
 package koreatechbus.swaggerapi;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -15,5 +16,11 @@ public interface BookmarkApi {
     @PostMapping("/register")
     ResponseEntity<Bookmark> registerBookmark(
         @RequestBody BookMarkDTO bookMarkDTO
+    );
+
+    @Operation(summary = "관심노선 등록")
+    @PostMapping("/{bookmarkId}")
+    ResponseEntity<Bookmark> deleteBookmark(
+        @PathVariable("bookmarkId") Long bookmarkId
     );
 }

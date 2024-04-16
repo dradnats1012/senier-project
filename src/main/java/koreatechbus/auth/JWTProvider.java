@@ -40,14 +40,14 @@ public class JWTProvider {
                 .getPayload()
                 .get("schoolId").toString();*/
 
-        String schoolId2 = Jwts.parser()
+        String schoolId = Jwts.parser()
             .setSigningKey(key)
             .build()
             .parseClaimsJws(token)
             .getBody()
             .get("schoolId").toString();
 
-        return schoolId2;
+        return schoolId;
     }
 
     /*public String createToken(TokenDTO tokenDTO){
