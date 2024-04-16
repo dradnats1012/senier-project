@@ -102,5 +102,12 @@ public class UserService {
 
         return new MainDTO(name, schoolId, role, bookmarks);
     }
+
+    public Long getUserId(String token) {
+        String schoolId = jwtProvider.getSchoolId(token);
+        User user = userRepository.findBySchoolId(schoolId);
+
+        return user.getUserId();
+    }
 }
 
