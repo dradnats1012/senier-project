@@ -1,6 +1,8 @@
 package koreatechbus.swaggerapi;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -23,5 +25,11 @@ public interface UserApi {
     @PostMapping("/login")
     ResponseEntity<String> login(
         @RequestBody LoginDTO loginDTO
+    );
+
+    @Operation(summary = "userId 가져오기")
+    @GetMapping("/{token}")
+    ResponseEntity<Long> getUserId(
+        @PathVariable String token
     );
 }
