@@ -23,27 +23,27 @@ public class PostController implements PostApi {
 
     private final PostService postService;
 
-    public PostController(PostService postService){
+    public PostController(PostService postService) {
         this.postService = postService;
     }
 
     @PostMapping
     public ResponseEntity<Void> newPost(
         @RequestBody RequestPostDTO requestPostDTO
-    ){
+    ) {
         postService.newPost(requestPostDTO);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping
-    public ResponseEntity<List<ResponsePostDTO>> getAllPost(){
+    public ResponseEntity<List<ResponsePostDTO>> getAllPost() {
         return ResponseEntity.ok().body(postService.getAllPost());
     }
 
     @GetMapping("/id/{postId}")
     public ResponseEntity<ResponsePostDTO> getPostById(
         @PathVariable Long postId
-    ){
+    ) {
         ResponsePostDTO responsePostDTO = postService.getPostById(postId);
         return ResponseEntity.ok().body(responsePostDTO);
     }
@@ -61,8 +61,8 @@ public class PostController implements PostApi {
     @GetMapping("/type/{postType}")
     public ResponseEntity<List<ResponsePostDTO>> getPostByType(
         @PathVariable Long postType
-    ){
-        List<ResponsePostDTO> postTypeList =  postService.getPostByType(postType);
+    ) {
+        List<ResponsePostDTO> postTypeList = postService.getPostByType(postType);
 
         return ResponseEntity.ok().body(postTypeList);
     }

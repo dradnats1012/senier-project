@@ -17,13 +17,14 @@ public class BookmarkService {
     private final UserRepository userRepository;
     private final BusRepository busRepository;
 
-    public BookmarkService(BookmarkRepository bookmarkRepository, UserRepository userRepository, BusRepository busRepository){
+    public BookmarkService(BookmarkRepository bookmarkRepository, UserRepository userRepository,
+        BusRepository busRepository) {
         this.bookmarkRepository = bookmarkRepository;
         this.userRepository = userRepository;
         this.busRepository = busRepository;
     }
 
-    public Bookmark registerBookmark(BookMarkDTO bookMarkDTO){
+    public Bookmark registerBookmark(BookMarkDTO bookMarkDTO) {
         User user = userRepository.findByUserId(bookMarkDTO.userId());
         Bus bus = busRepository.findByBusId(bookMarkDTO.busId());
         bus.plusPassengers();
@@ -35,7 +36,7 @@ public class BookmarkService {
     }
 
     @Transactional
-    public void deleteBookmark(Long bookmarkId){
+    public void deleteBookmark(Long bookmarkId) {
         Bookmark bookmark = bookmarkRepository.findByBookmarkId(bookmarkId);
         Bus bus = bookmark.getBus();
         bookmarkRepository.deleteByBookmarkId(bookmarkId);

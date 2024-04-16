@@ -19,7 +19,7 @@ public class BookmarkController implements BookmarkApi {
 
     private final BookmarkService bookmarkService;
 
-    public BookmarkController(BookmarkService bookmarkService){
+    public BookmarkController(BookmarkService bookmarkService) {
         this.bookmarkService = bookmarkService;
     }
 
@@ -32,7 +32,7 @@ public class BookmarkController implements BookmarkApi {
     @DeleteMapping("/{bookmarkId}")
     public ResponseEntity<Void> deleteBookmark(
         @PathVariable("bookmarkId") Long bookmarkId
-    ){
+    ) {
         bookmarkService.deleteBookmark(bookmarkId);
         return ResponseEntity.ok().build();
     }

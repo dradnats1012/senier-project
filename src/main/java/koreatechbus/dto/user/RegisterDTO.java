@@ -1,6 +1,6 @@
 package koreatechbus.dto.user;
 
-public record RegisterDTO (
+public record RegisterDTO(
     String schoolId,
     String name,
     String password,

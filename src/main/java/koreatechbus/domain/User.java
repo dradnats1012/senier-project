@@ -38,7 +38,7 @@ public class User {
     private List<Bookmark> bookmarks = new ArrayList<>();
 
     @Builder
-    public User(String schoolId, String name, String password, String email, Role role){
+    public User(String schoolId, String name, String password, String email, Role role) {
         this.schoolId = schoolId;
         this.name = name;
         this.password = password;

@@ -3,6 +3,7 @@ package koreatechbus.dto.bus;
 import java.util.List;
 
 import koreatechbus.enums.Days;
+
 public record NewBusDTO(
     String name,
     String departTime,

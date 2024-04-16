@@ -39,7 +39,7 @@ public class PostService {
         postRepository.save(post);
     }
 
-    public List<ResponsePostDTO> getAllPost(){
+    public List<ResponsePostDTO> getAllPost() {
         List<Post> allPost = postRepository.findAllByOrderByPostIdDesc();
         List<ResponsePostDTO> postDTOS = new ArrayList<>();
 
@@ -74,7 +74,7 @@ public class PostService {
     public void deletePost(Long postId, Long userId) throws AccessDeniedException {
         Post post = postRepository.findByPostId(postId);
 
-        if(!userId.equals(post.getUser().getUserId())){
+        if (!userId.equals(post.getUser().getUserId())) {
             throw new AccessDeniedException("글을 지울 권한이 없습니다!");
         }
         postRepository.deleteByPostId(postId);

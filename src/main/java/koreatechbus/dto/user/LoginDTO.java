@@ -1,8 +1,8 @@
 package koreatechbus.dto.user;
 
 public record LoginDTO(
-     String schoolId,
-     String password
+    String schoolId,
+    String password
 ) {
 
 }

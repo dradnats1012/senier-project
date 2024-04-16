@@ -42,7 +42,7 @@ public class Bus {
     private Set<Bookmark> bookmarks = new HashSet<>();*/
 
     @Builder
-    public Bus(String name, String departTime, String arrivalTime, List<Days> runDays){
+    public Bus(String name, String departTime, String arrivalTime, List<Days> runDays) {
         this.name = name;
         this.departTime = departTime;
         this.arrivalTime = arrivalTime;
@@ -53,17 +53,19 @@ public class Bus {
 
     }
 
-    public void plusPassengers(){
+    public void plusPassengers() {
         this.passengers += 1;
     }
 
-    public void minusPassengers(){
+    public void minusPassengers() {
         this.passengers -= 1;
     }
 
     @PrePersist
     public void prePersist() {
-        if (passengers == null) passengers = 0L;
-        if (bookmarkNum == null) bookmarkNum = 0L;
+        if (passengers == null)
+            passengers = 0L;
+        if (bookmarkNum == null)
+            bookmarkNum = 0L;
     }
 }

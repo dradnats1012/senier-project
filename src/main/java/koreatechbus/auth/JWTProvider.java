@@ -2,10 +2,12 @@ package koreatechbus.auth;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
+
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.time.LocalDateTime;
@@ -18,17 +20,17 @@ public class JWTProvider {
     @Value("${jwt.expired_time}")
     private Integer expiredTime;
 
-    public String createToken(Integer schoolId){
+    public String createToken(Integer schoolId) {
         SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
 
         return Jwts.builder()
-                .expiration(Date.valueOf(LocalDateTime.now().plusMinutes(expiredTime).toLocalDate()))
-                .claim("schoolId", schoolId)
-                .signWith(key)
-                .compact();
+            .expiration(Date.valueOf(LocalDateTime.now().plusMinutes(expiredTime).toLocalDate()))
+            .claim("schoolId", schoolId)
+            .signWith(key)
+            .compact();
     }
 
-    public String getSchoolId(String token){
+    public String getSchoolId(String token) {
         SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
 
         /*String schoolId = Jwts.parser()
@@ -39,11 +41,11 @@ public class JWTProvider {
                 .get("schoolId").toString();*/
 
         String schoolId2 = Jwts.parser()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token)
-                .getBody()
-                .get("schoolId").toString();
+            .setSigningKey(key)
+            .build()
+            .parseClaimsJws(token)
+            .getBody()
+            .get("schoolId").toString();
 
         return schoolId2;
     }

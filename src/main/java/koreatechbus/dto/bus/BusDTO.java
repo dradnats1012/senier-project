@@ -5,7 +5,7 @@ import java.util.List;
 import koreatechbus.domain.Station;
 import koreatechbus.enums.Days;
 
-public record BusDTO (
+public record BusDTO(
     Long busId,
     String busName
 ) {

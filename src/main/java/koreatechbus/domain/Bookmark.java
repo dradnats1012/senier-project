@@ -26,12 +26,12 @@ public class Bookmark {
     private Bus bus;
 
     @Builder
-    public Bookmark(User user, Bus bus){
+    public Bookmark(User user, Bus bus) {
         this.user = user;
         this.bus = bus;
     }
 
-    public Long getBusId(){
+    public Long getBusId() {
         return bus.getBusId();
     }
 

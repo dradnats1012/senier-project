@@ -21,12 +21,12 @@ public class BusService {
     private final StationRepository stationRepository;
     private static final Long MANAGER_ROLE_NUM = 1L;
 
-    public BusService(BusRepository busRepository, StationRepository stationRepository){
+    public BusService(BusRepository busRepository, StationRepository stationRepository) {
         this.busRepository = busRepository;
         this.stationRepository = stationRepository;
     }
 
-    public List<BusDTO> getAllBus(){
+    public List<BusDTO> getAllBus() {
         List<Bus> buses = busRepository.findAll();
         List<BusDTO> busDTOS = new ArrayList<>();
 
@@ -37,22 +37,22 @@ public class BusService {
         return busDTOS;
     }
 
-    public Bus putBus(NewBusDTO newBusDTO){
+    public Bus putBus(NewBusDTO newBusDTO) {
         return busRepository.save(Bus.builder()
-                .name(newBusDTO.name())
-                .departTime(newBusDTO.departTime())
-                .arrivalTime(newBusDTO.arrivalTime())
-                .runDays(newBusDTO.runDays())
-                .build());
+            .name(newBusDTO.name())
+            .departTime(newBusDTO.departTime())
+            .arrivalTime(newBusDTO.arrivalTime())
+            .runDays(newBusDTO.runDays())
+            .build());
     }
 
-    private void isManager(Long role){
-        if(!Objects.equals(role, MANAGER_ROLE_NUM)){
+    private void isManager(Long role) {
+        if (!Objects.equals(role, MANAGER_ROLE_NUM)) {
             throw new IllegalArgumentException("권한이 없습니다!");
         }
     }
 
-    public GetBusDTO getBusById(Long busId){
+    public GetBusDTO getBusById(Long busId) {
         Bus bus = busRepository.findByBusId(busId);
         List<Days> runDays = bus.getRunDays();
         List<Station> stations = stationRepository.findStationsByBus(bus);

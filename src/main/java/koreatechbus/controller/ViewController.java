@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ViewController implements ViewApi {
     private final UserService userService;
-    public ViewController(UserService userService){
+
+    public ViewController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping("/main")
-    public ResponseEntity<MainDTO> getMain(@RequestParam String token){
+    public ResponseEntity<MainDTO> getMain(@RequestParam String token) {
         return ResponseEntity.ok().body(userService.getMainPage(token));
     }
 }
