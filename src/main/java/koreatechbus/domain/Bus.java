@@ -53,12 +53,12 @@ public class Bus {
 
     }
 
-    public void plusPassengers() {
-        this.passengers += 1;
+    public void plusBookmarkNum() {
+        this.bookmarkNum += 1;
     }
 
-    public void minusPassengers() {
-        this.passengers -= 1;
+    public void minusBookmarkNum() {
+        this.bookmarkNum -= 1;
     }
 
     @PrePersist

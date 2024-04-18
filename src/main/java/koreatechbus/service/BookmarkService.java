@@ -31,7 +31,7 @@ public class BookmarkService {
             throw new IllegalAccessException("이미 관심노선으로 등록되어 있습니다!");
         }
 
-        bus.plusPassengers();
+        bus.plusBookmarkNum();
         busRepository.save(bus);
 
         Bookmark bookmark = new Bookmark(user, bus);
@@ -44,7 +44,7 @@ public class BookmarkService {
         Bus bus = bookmark.getBus();
         bookmarkRepository.deleteByBookmarkId(bookmarkId);
 
-        bus.minusPassengers();
+        bus.minusBookmarkNum();
         busRepository.save(bus);
     }
 }
