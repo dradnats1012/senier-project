@@ -1,12 +1,14 @@
 package koreatechbus.dto.post;
 
 public record ResponsePostDTO(
+    Long postId,
     String title,
     String content,
     String postTime,
-    String userName
+    String userName,
+    Long postType
 ) {
-    public static ResponsePostDTO of(String title, String content, String postTime, String userName) {
-        return new ResponsePostDTO(title, content, postTime, userName);
+    public static ResponsePostDTO of(Long postId, String title, String content, String postTime, String userName, Long postType) {
+        return new ResponsePostDTO(postId, title, content, postTime, userName, postType);
     }
 }

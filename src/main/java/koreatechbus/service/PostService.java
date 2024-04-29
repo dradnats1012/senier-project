@@ -45,7 +45,8 @@ public class PostService {
 
         for (Post post : allPost) {
             User user = post.getUser();
-            postDTOS.add(ResponsePostDTO.of(post.getTitle(), post.getContent(), post.getPostTime(), user.getName()));
+            postDTOS.add(ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
+                user.getName(), post.getPostType()));
         }
 
         return postDTOS;
@@ -55,7 +56,8 @@ public class PostService {
         Post post = postRepository.findByPostId(postId);
         User user = post.getUser();
 
-        return ResponsePostDTO.of(post.getTitle(), post.getContent(), post.getPostTime(), user.getName());
+        return ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
+            user.getName(), post.getPostType());
     }
 
     public List<ResponsePostDTO> getPostByType(Long postType) {
@@ -64,7 +66,8 @@ public class PostService {
 
         for (Post post : posts) {
             User user = post.getUser();
-            postDTOS.add(ResponsePostDTO.of(post.getTitle(), post.getContent(), post.getPostTime(), user.getName()));
+            postDTOS.add(ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
+                user.getName(), post.getPostType()));
         }
 
         return postDTOS;
