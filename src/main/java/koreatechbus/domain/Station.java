@@ -20,6 +20,9 @@ public class Station {
     @Column(name = "arrival_time")
     private String arrivalTime;
 
+    @Column(name = "sequence")
+    private Long sequence;
+
     @ManyToOne
     @JoinColumn(name = "bus_id")
     private Bus bus;
@@ -28,11 +31,12 @@ public class Station {
     private String imageUrl;
 
     @Builder
-    public Station(String stationName, String arrivalTime, Bus bus, String imageUrl) {
+    public Station(String stationName, String arrivalTime, Bus bus, String imageUrl, Long sequence) {
         this.stationName = stationName;
         this.arrivalTime = arrivalTime;
         this.bus = bus;
         this.imageUrl = imageUrl;
+        this.sequence = sequence;
     }
 
     public Station() {

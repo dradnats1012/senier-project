@@ -24,9 +24,9 @@ public class StationService {
         Station station = Station.builder()
             .stationName(registerStationDTO.stationName())
             .arrivalTime(registerStationDTO.arrivalTime())
+            .sequence(registerStationDTO.sequence())
             .bus(bus)
             .build();
-
         stationRepository.save(station);
 
         return station;
