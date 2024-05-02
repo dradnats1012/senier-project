@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -22,6 +23,8 @@ public interface CommentApi {
     );
 
     @Operation(summary = "댓글 불러오기")
-    @GetMapping
-    ResponseEntity<List<ResponseCommentDTO>> getCommentByPostId();
+    @GetMapping("/{postId}")
+    ResponseEntity<List<ResponseCommentDTO>> getCommentByPostId(
+        @PathVariable Long postId
+    );
 }

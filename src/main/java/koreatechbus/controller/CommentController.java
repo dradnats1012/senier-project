@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import koreatechbus.service.CommentService;
 @RestController
 @RequestMapping("/comment")
 public class CommentController {
+
     private final CommentService commentService;
 
     public CommentController(CommentService commentService) {
@@ -29,8 +31,9 @@ public class CommentController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
-    public ResponseEntity<List<ResponseCommentDTO>> getCommentByPostId(Long postId) {
+    @GetMapping("/{postId}")
+    public ResponseEntity<List<ResponseCommentDTO>> getCommentByPostId(
+        @PathVariable Long postId) {
         List<ResponseCommentDTO> comments = commentService.getCommentByPostId(postId);
         return ResponseEntity.ok().body(comments);
     }
