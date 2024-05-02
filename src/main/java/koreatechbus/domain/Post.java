@@ -1,6 +1,7 @@
 package koreatechbus.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -15,16 +16,19 @@ public class Post {
     private Long postId;
 
     @Column(name = "title")
+    @NotNull
     private String title;
 
     @Lob
     @Column(name = "content")
+    @NotNull
     private String content;
 
     @Column(name = "post_time")
     private String postTime;
 
     @Column(name = "post_type") // 1 : 공지사항, 2 : 분실물, 3 : 자유
+    @NotNull
     private Long postType;
 
     @Column(name = "image_url")
@@ -34,6 +38,7 @@ public class Post {
     private Boolean anonymous;
 
     @ManyToOne
+    @NotNull
     @JoinColumn(name = "user_id")
     private User user;
 
