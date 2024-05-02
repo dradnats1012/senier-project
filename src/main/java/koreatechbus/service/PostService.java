@@ -33,6 +33,7 @@ public class PostService {
             .content(requestPostDTO.content())
             .postTime(requestPostDTO.postTime())
             .postType(requestPostDTO.postType())
+            .anonymous(requestPostDTO.anonymous())
             .user(user)
             .build();
 
@@ -46,7 +47,7 @@ public class PostService {
         for (Post post : allPost) {
             User user = post.getUser();
             postDTOS.add(ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
-                user.getName(), post.getPostType()));
+                user.getName(), post.getPostType(), post.getAnonymous()));
         }
 
         return postDTOS;
@@ -57,7 +58,7 @@ public class PostService {
         User user = post.getUser();
 
         return ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
-            user.getName(), post.getPostType());
+            user.getName(), post.getPostType(), post.getAnonymous());
     }
 
     public List<ResponsePostDTO> getPostByType(Long postType) {
@@ -67,7 +68,7 @@ public class PostService {
         for (Post post : posts) {
             User user = post.getUser();
             postDTOS.add(ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
-                user.getName(), post.getPostType()));
+                user.getName(), post.getPostType(), post.getAnonymous()));
         }
 
         return postDTOS;
