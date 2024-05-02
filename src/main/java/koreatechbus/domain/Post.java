@@ -24,24 +24,28 @@ public class Post {
     @Column(name = "post_time")
     private String postTime;
 
-    @Column(name = "post_type") // 1 : 공지사항, 2 : 분실물
+    @Column(name = "post_type") // 1 : 공지사항, 2 : 분실물, 3 : 자유
     private Long postType;
 
     @Column(name = "image_url")
     private String imageUrl;
+
+    @Column(name = "anonymous")
+    private Boolean anonymous;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     @Builder
-    public Post(String title, String content, String postTime, Long postType, User user, String imageUrl) {
+    public Post(String title, String content, String postTime, Long postType, String imageUrl, Boolean anonymous, User user) {
         this.title = title;
         this.content = content;
         this.postTime = postTime;
         this.postType = postType;
-        this.user = user;
         this.imageUrl = imageUrl;
+        this.anonymous = anonymous;
+        this.user = user;
     }
 
     public Post() {
