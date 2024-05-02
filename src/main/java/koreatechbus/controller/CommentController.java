@@ -1,13 +1,15 @@
 package koreatechbus.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import koreatechbus.domain.Comment;
 import koreatechbus.dto.comment.RequestCommentDTO;
-import koreatechbus.repository.CommentRepository;
+import koreatechbus.dto.comment.ResponseCommentDTO;
 import koreatechbus.service.CommentService;
 
 @RestController
@@ -25,5 +27,11 @@ public class CommentController {
     ) {
         commentService.newComment(requestCommentDTO);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ResponseCommentDTO>> getCommentByPostId(Long postId) {
+        List<ResponseCommentDTO> comments = commentService.getCommentByPostId(postId);
+        return ResponseEntity.ok().body(comments);
     }
 }

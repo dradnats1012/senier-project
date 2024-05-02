@@ -1,11 +1,15 @@
 package koreatechbus.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import koreatechbus.domain.Comment;
 import koreatechbus.domain.Post;
 import koreatechbus.domain.User;
 import koreatechbus.dto.comment.RequestCommentDTO;
+import koreatechbus.dto.comment.ResponseCommentDTO;
 import koreatechbus.repository.CommentRepository;
 import koreatechbus.repository.PostRepository;
 import koreatechbus.repository.UserRepository;
@@ -37,5 +41,21 @@ public class CommentService {
             .build();
 
         commentRepository.save(comment);
+    }
+
+    public List<ResponseCommentDTO> getCommentByPostId(Long postId) {
+        Post post = postRepository.findByPostId(postId);
+        List<Comment> comments = commentRepository.findAllByPostOrderByCommentIdDesc(post);
+        List<ResponseCommentDTO> commentDTOS = new ArrayList<>();
+
+        for (Comment comment : comments) {
+            User user = post.getUser();
+
+            commentDTOS.add(ResponseCommentDTO.of(comment.getCommentId(), comment.getContent(), comment.getPostTime(),
+                user.getName(),
+                comment.getAnonymous()));
+        }
+
+        return commentDTOS;
     }
 }
