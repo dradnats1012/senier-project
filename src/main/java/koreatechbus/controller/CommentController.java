@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import koreatechbus.dto.comment.RequestCommentDTO;
 import koreatechbus.dto.comment.ResponseCommentDTO;
 import koreatechbus.service.CommentService;
+import koreatechbus.swaggerapi.CommentApi;
 
 @RestController
 @RequestMapping("/comment")
-public class CommentController {
+public class CommentController implements CommentApi {
 
     private final CommentService commentService;
 
