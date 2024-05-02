@@ -5,6 +5,7 @@ public record RequestPostDTO(
     String content,
     String postTime,
     Long postType,
-    Long userId
+    Long userId,
+    Boolean anonymous
 ) {
 }
