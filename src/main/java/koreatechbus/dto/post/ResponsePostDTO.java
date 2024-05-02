@@ -6,9 +6,11 @@ public record ResponsePostDTO(
     String content,
     String postTime,
     String userName,
-    Long postType
+    Long postType,
+    Boolean anonymous
 ) {
-    public static ResponsePostDTO of(Long postId, String title, String content, String postTime, String userName, Long postType) {
-        return new ResponsePostDTO(postId, title, content, postTime, userName, postType);
+    public static ResponsePostDTO of(Long postId, String title, String content, String postTime, String userName,
+        Long postType, Boolean anonymous) {
+        return new ResponsePostDTO(postId, title, content, postTime, userName, postType, anonymous);
     }
 }
