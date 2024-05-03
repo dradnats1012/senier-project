@@ -46,4 +46,10 @@ public interface PostApi {
     ResponseEntity<List<ResponsePostDTO>> getPostByType(
         @PathVariable Long postType
     );
+
+    @Operation(summary = "내가 쓴 글 불러오기")
+    @GetMapping("/{userId}")
+    ResponseEntity<List<ResponsePostDTO>> getMyPost(
+        @PathVariable Long userId
+    );
 }

@@ -83,5 +83,19 @@ public class PostService {
         }
         postRepository.deleteByPostId(postId);
     }
+
+    public List<ResponsePostDTO> getMyPost(Long userId) {
+        User user = userRepository.findByUserId(userId);
+        List<Post> myPosts = postRepository.findByUserOrderByPostIdDesc(user);
+        List<ResponsePostDTO> myPostDTOS = new ArrayList<>();
+
+        for (Post post : myPosts) {
+            User postUser = post.getUser();
+            myPostDTOS.add(ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
+                postUser.getName(), post.getPostType(), post.getAnonymous()));
+        }
+
+        return myPostDTOS;
+    }
 }
 

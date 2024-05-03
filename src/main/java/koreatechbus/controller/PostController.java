@@ -66,4 +66,11 @@ public class PostController implements PostApi {
 
         return ResponseEntity.ok().body(postTypeList);
     }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<ResponsePostDTO>> getMyPost(
+        @PathVariable Long userId
+    ) {
+        return ResponseEntity.ok().body(postService.getMyPost(userId));
+    }
 }
