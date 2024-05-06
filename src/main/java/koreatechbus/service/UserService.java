@@ -10,7 +10,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import koreatechbus.auth.JWTProvider;
-import koreatechbus.domain.Bookmark;
+import koreatechbus.domain.BusBookmark;
 import koreatechbus.domain.User;
 import koreatechbus.dto.etc.MainDTO;
 import koreatechbus.dto.user.LoginDTO;
@@ -98,9 +98,9 @@ public class UserService {
 
         String name = user.getName();
         Role role = user.getRole();
-        List<Bookmark> bookmarks = user.getBookmarks();
+        List<BusBookmark> busBookmarks = user.getBusBookmarks();
 
-        return new MainDTO(name, schoolId, role, bookmarks);
+        return new MainDTO(name, schoolId, role, busBookmarks);
     }
 
     public Long getUserId(String token) {

@@ -7,9 +7,9 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Entity
-@Table(name = "bookmark")
+@Table(name = "bus_bookmark")
 @Getter
-public class Bookmark {
+public class BusBookmark {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class Bookmark {
     private Bus bus;
 
     @Builder
-    public Bookmark(User user, Bus bus) {
+    public BusBookmark(User user, Bus bus) {
         this.user = user;
         this.bus = bus;
     }
@@ -35,7 +35,7 @@ public class Bookmark {
         return bus.getBusId();
     }
 
-    public Bookmark() {
+    public BusBookmark() {
 
     }
 }

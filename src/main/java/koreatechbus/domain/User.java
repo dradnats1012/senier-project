@@ -35,7 +35,7 @@ public class User {
     private Role role;      // 1 : 관리자, 2 : 버스 기사, 3 : 일반 사용자
 
     @OneToMany(mappedBy = "user")
-    private List<Bookmark> bookmarks = new ArrayList<>();
+    private List<BusBookmark> busBookmarks = new ArrayList<>();
 
     @Builder
     public User(String schoolId, String name, String password, String email, Role role) {

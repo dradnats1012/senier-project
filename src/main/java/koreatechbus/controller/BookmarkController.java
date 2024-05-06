@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import koreatechbus.domain.Bookmark;
+import koreatechbus.domain.BusBookmark;
 import koreatechbus.dto.bookmark.BookMarkDTO;
 import koreatechbus.service.BookmarkService;
 import koreatechbus.swaggerapi.BookmarkApi;
@@ -27,7 +27,7 @@ public class BookmarkController implements BookmarkApi {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Bookmark> registerBookmark(
+    public ResponseEntity<BusBookmark> registerBookmark(
         @RequestBody BookMarkDTO bookMarkDTO) throws IllegalAccessException {
         return ResponseEntity.ok().body(bookmarkService.registerBookmark(bookMarkDTO));
     }
@@ -41,10 +41,10 @@ public class BookmarkController implements BookmarkApi {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<List<Bookmark>> getBookmarks(
+    public ResponseEntity<List<BusBookmark>> getBookmarks(
         @PathVariable Long userId
     ){
-        List<Bookmark> bookmarks = bookmarkService.getBookmarks(userId);
-        return ResponseEntity.ok().body(bookmarks);
+        List<BusBookmark> busBookmarks = bookmarkService.getBookmarks(userId);
+        return ResponseEntity.ok().body(busBookmarks);
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import koreatechbus.domain.Bookmark;
+import koreatechbus.domain.BusBookmark;
 import koreatechbus.domain.Bus;
 import koreatechbus.domain.User;
 import koreatechbus.dto.bookmark.BookMarkDTO;
@@ -26,7 +26,7 @@ public class BookmarkService {
         this.busRepository = busRepository;
     }
 
-    public Bookmark registerBookmark(BookMarkDTO bookMarkDTO) throws IllegalAccessException {
+    public BusBookmark registerBookmark(BookMarkDTO bookMarkDTO) throws IllegalAccessException {
         User user = userRepository.findByUserId(bookMarkDTO.userId());
         Bus bus = busRepository.findByBusId(bookMarkDTO.busId());
         if (bookmarkRepository.existsByUserAndBus(user, bus)) {
@@ -36,21 +36,21 @@ public class BookmarkService {
         bus.plusBookmarkNum();
         busRepository.save(bus);
 
-        Bookmark bookmark = new Bookmark(user, bus);
-        return bookmarkRepository.save(bookmark);
+        BusBookmark busBookmark = new BusBookmark(user, bus);
+        return bookmarkRepository.save(busBookmark);
     }
 
     @Transactional
     public void deleteBookmark(Long bookmarkId) {
-        Bookmark bookmark = bookmarkRepository.findByBookmarkId(bookmarkId);
-        Bus bus = bookmark.getBus();
+        BusBookmark busBookmark = bookmarkRepository.findByBookmarkId(bookmarkId);
+        Bus bus = busBookmark.getBus();
         bookmarkRepository.deleteByBookmarkId(bookmarkId);
 
         bus.minusBookmarkNum();
         busRepository.save(bus);
     }
 
-    public List<Bookmark> getBookmarks(Long userId){
+    public List<BusBookmark> getBookmarks(Long userId){
         User user = userRepository.findByUserId(userId);
         return bookmarkRepository.getBookmarksByUser(user);
     }

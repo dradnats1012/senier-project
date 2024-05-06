@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import koreatechbus.domain.Bookmark;
+import koreatechbus.domain.BusBookmark;
 import koreatechbus.dto.bookmark.BookMarkDTO;
 
 @Tag(name = "북마크 api", description = "북마크 api")
 public interface BookmarkApi {
     @Operation(summary = "관심노선 등록")
     @PostMapping("/register")
-    ResponseEntity<Bookmark> registerBookmark(
+    ResponseEntity<BusBookmark> registerBookmark(
         @RequestBody BookMarkDTO bookMarkDTO
     ) throws IllegalAccessException;
 
@@ -29,7 +29,7 @@ public interface BookmarkApi {
 
     @Operation(summary = "관심노선목록 불러오기")
     @GetMapping("/{userId}")
-    ResponseEntity<List<Bookmark>> getBookmarks(
+    ResponseEntity<List<BusBookmark>> getBookmarks(
         @PathVariable Long userId
     );
 }
