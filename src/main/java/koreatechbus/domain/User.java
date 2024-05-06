@@ -37,6 +37,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<BusBookmark> busBookmarks = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<StationBookmark> stationBookmarks = new ArrayList<>();
+
     @Builder
     public User(String schoolId, String name, String password, String email, Role role) {
         this.schoolId = schoolId;

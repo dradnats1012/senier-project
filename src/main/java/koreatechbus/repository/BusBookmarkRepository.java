@@ -8,7 +8,7 @@ import koreatechbus.domain.BusBookmark;
 import koreatechbus.domain.Bus;
 import koreatechbus.domain.User;
 
-public interface BookmarkRepository extends JpaRepository<BusBookmark, Long> {
+public interface BusBookmarkRepository extends JpaRepository<BusBookmark, Long> {
     BusBookmark save(BusBookmark busBookmark);
 
     void deleteByBookmarkId(Long bookmarkId);
@@ -17,5 +17,5 @@ public interface BookmarkRepository extends JpaRepository<BusBookmark, Long> {
 
     Boolean existsByUserAndBus(User user, Bus bus);
 
-    List<BusBookmark> getBookmarksByUser(User user);
+    List<BusBookmark> getBusBookmarksByUser(User user);
 }
