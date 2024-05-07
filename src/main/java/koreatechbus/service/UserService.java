@@ -98,9 +98,10 @@ public class UserService {
 
         String name = user.getName();
         Role role = user.getRole();
+        String email = user.getEmail();
         List<BusBookmark> busBookmarks = user.getBusBookmarks();
 
-        return new MainDTO(name, schoolId, role, busBookmarks);
+        return new MainDTO(name, schoolId, role, email, busBookmarks);
     }
 
     public Long getUserId(String token) {
