@@ -52,8 +52,7 @@ public class CommentService {
             User user = post.getUser();
 
             commentDTOS.add(ResponseCommentDTO.of(comment.getCommentId(), comment.getContent(), comment.getPostTime(),
-                user.getName(),
-                comment.getAnonymous()));
+                user.getUserId(), user.getName(), comment.getAnonymous()));
         }
 
         return commentDTOS;
