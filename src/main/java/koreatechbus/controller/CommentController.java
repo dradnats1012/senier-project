@@ -33,9 +33,17 @@ public class CommentController implements CommentApi {
     }
 
     @GetMapping("/{postId}")
-    public ResponseEntity<List<ResponseCommentDTO>> getCommentByPostId(
-        @PathVariable Long postId) {
-        List<ResponseCommentDTO> comments = commentService.getCommentByPostId(postId);
+    public ResponseEntity<List<ResponseCommentDTO>> getCommentsByPostId(
+        @PathVariable Long postId
+    ) {
+        List<ResponseCommentDTO> comments = commentService.getCommentsByPostId(postId);
         return ResponseEntity.ok().body(comments);
+    }
+
+    @GetMapping("/count/{postId}")
+    public ResponseEntity<Integer> countByPostId(
+        @PathVariable Long postId
+    ) {
+        return ResponseEntity.ok().body(commentService.countByPostId(postId));
     }
 }

@@ -24,7 +24,13 @@ public interface CommentApi {
 
     @Operation(summary = "댓글 불러오기")
     @GetMapping("/{postId}")
-    ResponseEntity<List<ResponseCommentDTO>> getCommentByPostId(
+    ResponseEntity<List<ResponseCommentDTO>> getCommentsByPostId(
+        @PathVariable Long postId
+    );
+
+    @Operation(summary = "댓글 불러오기")
+    @GetMapping("/count/{postId}")
+    ResponseEntity<Integer> countByPostId(
         @PathVariable Long postId
     );
 }

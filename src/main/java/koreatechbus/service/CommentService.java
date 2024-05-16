@@ -43,7 +43,7 @@ public class CommentService {
         commentRepository.save(comment);
     }
 
-    public List<ResponseCommentDTO> getCommentByPostId(Long postId) {
+    public List<ResponseCommentDTO> getCommentsByPostId(Long postId) {
         Post post = postRepository.findByPostId(postId);
         List<Comment> comments = commentRepository.findAllByPostOrderByCommentIdDesc(post);
         List<ResponseCommentDTO> commentDTOS = new ArrayList<>();
@@ -57,5 +57,10 @@ public class CommentService {
         }
 
         return commentDTOS;
+    }
+
+    public Integer countByPostId(Long postId) {
+        Post post = postRepository.findByPostId(postId);
+        return commentRepository.countAllByPost(post);
     }
 }
