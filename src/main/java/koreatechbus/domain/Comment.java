@@ -40,13 +40,17 @@ public class Comment {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(name = "display_name")
+    private String displayName;
+
     @Builder
-    public Comment(String content, String postTime, Boolean anonymous, Post post, User user) {
+    public Comment(String content, String postTime, Boolean anonymous, Post post, User user, String displayName) {
         this.content = content;
         this.postTime = postTime;
         this.anonymous = anonymous;
         this.post = post;
         this.user = user;
+        this.displayName = displayName;
     }
 
     public Comment() {
