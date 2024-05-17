@@ -5,6 +5,7 @@ public record RequestCommentDTO(
     String postTime,
     Long postId,
     Long userId,
-    Boolean anonymous
+    Boolean anonymous,
+    String displayName
 ) {
 }

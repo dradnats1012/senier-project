@@ -38,6 +38,7 @@ public class CommentService {
             .anonymous(requestCommentDTO.anonymous())
             .post(post)
             .user(user)
+            .displayName(requestCommentDTO.displayName())
             .build();
 
         commentRepository.save(comment);
