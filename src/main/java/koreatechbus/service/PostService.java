@@ -11,6 +11,7 @@ import koreatechbus.domain.Post;
 import koreatechbus.domain.User;
 import koreatechbus.dto.post.RequestPostDTO;
 import koreatechbus.dto.post.ResponsePostDTO;
+import koreatechbus.repository.CommentRepository;
 import koreatechbus.repository.PostRepository;
 import koreatechbus.repository.UserRepository;
 
@@ -19,10 +20,13 @@ public class PostService {
 
     private final PostRepository postRepository;
     private final UserRepository userRepository;
+    private final CommentRepository commentRepository;
 
-    public PostService(PostRepository postRepository, UserRepository userRepository) {
+    public PostService(PostRepository postRepository, UserRepository userRepository,
+        CommentRepository commentRepository) {
         this.postRepository = postRepository;
         this.userRepository = userRepository;
+        this.commentRepository = commentRepository;
     }
 
     public void newPost(RequestPostDTO requestPostDTO) {
@@ -77,6 +81,8 @@ public class PostService {
     @Transactional
     public void deletePost(Long postId, Long userId) throws AccessDeniedException {
         Post post = postRepository.findByPostId(postId);
+
+        commentRepository.deleteAllByPost(post);
 
         if (!userId.equals(post.getUser().getUserId())) {
             throw new AccessDeniedException("글을 지울 권한이 없습니다!");
