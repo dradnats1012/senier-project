@@ -6,6 +6,7 @@ public record RequestPostDTO(
     String postTime,
     Long postType,
     Long userId,
+    String imageUrl,
     Boolean anonymous
 ) {
 }
