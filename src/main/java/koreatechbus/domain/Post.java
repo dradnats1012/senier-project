@@ -34,6 +34,9 @@ public class Post {
     @Column(name = "image_url")
     private String imageUrl;
 
+    @Column(name = "attachment_url")
+    private String attachmentUrl;
+
     @Column(name = "anonymous")
     private Boolean anonymous;
 
@@ -43,12 +46,14 @@ public class Post {
     private User user;
 
     @Builder
-    public Post(String title, String content, String postTime, Long postType, String imageUrl, Boolean anonymous, User user) {
+    public Post(String title, String content, String postTime, Long postType, String imageUrl, String attachmentUrl,
+        Boolean anonymous, User user) {
         this.title = title;
         this.content = content;
         this.postTime = postTime;
         this.postType = postType;
         this.imageUrl = imageUrl;
+        this.attachmentUrl = attachmentUrl;
         this.anonymous = anonymous;
         this.user = user;
     }

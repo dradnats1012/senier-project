@@ -8,10 +8,12 @@ public record ResponsePostDTO(
     String userName,
     Long postType,
     String imageUrl,
+    String attachmentUrl,
     Boolean anonymous
 ) {
     public static ResponsePostDTO of(Long postId, String title, String content, String postTime, String userName,
-        Long postType, String imageUrl, Boolean anonymous) {
-        return new ResponsePostDTO(postId, title, content, postTime, userName, postType, imageUrl, anonymous);
+        Long postType, String imageUrl, String attachmentUrl, Boolean anonymous) {
+        return new ResponsePostDTO(postId, title, content, postTime, userName, postType, imageUrl, attachmentUrl,
+            anonymous);
     }
 }

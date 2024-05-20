@@ -38,6 +38,7 @@ public class PostService {
             .postTime(requestPostDTO.postTime())
             .postType(requestPostDTO.postType())
             .imageUrl(requestPostDTO.imageUrl())
+            .attachmentUrl(requestPostDTO.attachmentUrl())
             .anonymous(requestPostDTO.anonymous())
             .user(user)
             .build();
@@ -52,7 +53,7 @@ public class PostService {
         for (Post post : allPost) {
             User user = post.getUser();
             postDTOS.add(ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
-                user.getName(), post.getPostType(), post.getImageUrl(), post.getAnonymous()));
+                user.getName(), post.getPostType(), post.getImageUrl(), post.getAttachmentUrl(), post.getAnonymous()));
         }
 
         return postDTOS;
@@ -63,7 +64,7 @@ public class PostService {
         User user = post.getUser();
 
         return ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
-            user.getName(), post.getPostType(), post.getImageUrl(), post.getAnonymous());
+            user.getName(), post.getPostType(), post.getImageUrl(), post.getAttachmentUrl(), post.getAnonymous());
     }
 
     public List<ResponsePostDTO> getPostByType(Long postType) {
@@ -73,7 +74,7 @@ public class PostService {
         for (Post post : posts) {
             User user = post.getUser();
             postDTOS.add(ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
-                user.getName(), post.getPostType(), post.getImageUrl(), post.getAnonymous()));
+                user.getName(), post.getPostType(), post.getImageUrl(), post.getAttachmentUrl(), post.getAnonymous()));
         }
 
         return postDTOS;
@@ -99,7 +100,8 @@ public class PostService {
         for (Post post : myPosts) {
             User postUser = post.getUser();
             myPostDTOS.add(ResponsePostDTO.of(post.getPostId(), post.getTitle(), post.getContent(), post.getPostTime(),
-                postUser.getName(), post.getPostType(), post.getImageUrl(), post.getAnonymous()));
+                postUser.getName(), post.getPostType(), post.getImageUrl(), post.getAttachmentUrl(),
+                post.getAnonymous()));
         }
 
         return myPostDTOS;
