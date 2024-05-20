@@ -7,6 +7,7 @@ public record RequestPostDTO(
     Long postType,
     Long userId,
     String imageUrl,
+    String fileName,
     String attachmentUrl,
     Boolean anonymous
 ) {

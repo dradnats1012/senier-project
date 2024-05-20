@@ -34,6 +34,9 @@ public class Post {
     @Column(name = "image_url")
     private String imageUrl;
 
+    @Column(name = "file_name")
+    private String fileName;
+
     @Column(name = "attachment_url")
     private String attachmentUrl;
 
@@ -46,13 +49,14 @@ public class Post {
     private User user;
 
     @Builder
-    public Post(String title, String content, String postTime, Long postType, String imageUrl, String attachmentUrl,
+    public Post(String title, String content, String postTime, Long postType, String imageUrl, String fileName, String attachmentUrl,
         Boolean anonymous, User user) {
         this.title = title;
         this.content = content;
         this.postTime = postTime;
         this.postType = postType;
         this.imageUrl = imageUrl;
+        this.fileName = fileName;
         this.attachmentUrl = attachmentUrl;
         this.anonymous = anonymous;
         this.user = user;
