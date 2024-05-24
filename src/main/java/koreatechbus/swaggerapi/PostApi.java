@@ -52,4 +52,8 @@ public interface PostApi {
     ResponseEntity<List<ResponsePostDTO>> getMyPost(
         @PathVariable Long userId
     );
+
+    @Operation(summary = "공지사항 글 개수 반환")
+    @GetMapping("/announcement")
+    ResponseEntity<Long> getAnnouncementNum();
 }

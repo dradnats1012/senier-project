@@ -110,5 +110,9 @@ public class PostService {
 
         return myPostDTOS;
     }
+
+    public Long getAnnouncementNum(){
+        return postRepository.countAllByPostType(1L);
+    }
 }
 

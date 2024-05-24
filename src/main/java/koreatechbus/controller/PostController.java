@@ -73,4 +73,10 @@ public class PostController implements PostApi {
     ) {
         return ResponseEntity.ok().body(postService.getMyPost(userId));
     }
+
+    @GetMapping("/announcement")
+    public ResponseEntity<Long> getAnnouncementNum()
+    {
+        return ResponseEntity.ok().body(postService.getAnnouncementNum());
+    }
 }
