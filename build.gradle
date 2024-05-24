@@ -33,6 +33,8 @@ dependencies {
 	implementation 'org.mindrot:jbcrypt:0.4'
 
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+
+	implementation 'com.google.firebase:firebase-admin:9.2.0'
 }
 
 tasks.named('test') {

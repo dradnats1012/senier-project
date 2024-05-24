@@ -9,11 +9,13 @@ import java.util.regex.Pattern;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
 import koreatechbus.auth.JWTProvider;
 import koreatechbus.domain.BusBookmark;
 import koreatechbus.domain.User;
 import koreatechbus.dto.etc.MainDTO;
 import koreatechbus.dto.user.LoginDTO;
+import koreatechbus.dto.user.NotificationStatusResponse;
 import koreatechbus.dto.user.RegisterDTO;
 import koreatechbus.enums.Role;
 import koreatechbus.repository.UserRepository;
@@ -109,6 +111,18 @@ public class UserService {
         User user = userRepository.findBySchoolId(schoolId);
 
         return user.getUserId();
+    }
+
+    @Transactional
+    public void permitNotification(Long userId, String deviceToken) {
+        User user = userRepository.findByUserId(userId);
+        user.permitNotification(deviceToken);
+    }
+
+    @Transactional
+    public void rejectNotification(Long userId) {
+        User user = userRepository.findByUserId(userId);
+        user.rejectNotification();
     }
 }
 

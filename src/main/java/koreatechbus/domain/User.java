@@ -34,6 +34,9 @@ public class User {
     @Column(name = "role")
     private Role role;      // 1 : 관리자, 2 : 버스 기사, 3 : 일반 사용자
 
+    @Column(name = "device_token", nullable = true)
+    private String deviceToken;
+
     @OneToMany(mappedBy = "user")
     private List<BusBookmark> busBookmarks = new ArrayList<>();
 
@@ -41,14 +44,23 @@ public class User {
     private List<StationBookmark> stationBookmarks = new ArrayList<>();
 
     @Builder
-    public User(String schoolId, String name, String password, String email, Role role) {
+    public User(String schoolId, String name, String password, String email, Role role, String deviceToken) {
         this.schoolId = schoolId;
         this.name = name;
         this.password = password;
         this.email = email;
         this.role = role;
+        this.deviceToken = deviceToken;
     }
 
     public User() {
+    }
+
+    public void permitNotification(String deviceToken) {
+        this.deviceToken = deviceToken;
+    }
+
+    public void rejectNotification() {
+        this.deviceToken = null;
     }
 }

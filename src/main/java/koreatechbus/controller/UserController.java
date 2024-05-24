@@ -1,6 +1,7 @@
 package koreatechbus.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import koreatechbus.domain.User;
 import koreatechbus.dto.user.LoginDTO;
+import koreatechbus.dto.user.NotificationPermitRequest;
 import koreatechbus.dto.user.RegisterDTO;
 import koreatechbus.service.UserService;
 import koreatechbus.swaggerapi.UserApi;
@@ -40,10 +42,20 @@ public class UserController implements UserApi {
         return ResponseEntity.ok().body(userService.getUserId(token));
     }
 
-    /*@GetMapping("/information")
-    public void getInformation(@RequestParam String token){
-        System.out.println("들어옴");
-        jwtProvider.getInformation(token);
-    }*/
+    @PostMapping("/notification")
+    public ResponseEntity<Void> permitNotification(
+        Long userId,
+        @RequestBody NotificationPermitRequest request
+    ) {
+        userService.permitNotification(userId, request.deviceToken());
+        return ResponseEntity.ok().build();
+    }
 
+    @DeleteMapping("/notification")
+    public ResponseEntity<Void> rejectNotification(
+        Long userId
+    ) {
+        userService.rejectNotification(userId);
+        return ResponseEntity.ok().build();
+    }
 }
