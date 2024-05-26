@@ -63,4 +63,9 @@ public class CommentService {
         Post post = postRepository.findByPostId(postId);
         return commentRepository.countAllByPost(post);
     }
+
+    public String getUserName(Long userId){
+        User user = userRepository.findByUserId(userId);
+        return user.getName();
+    }
 }

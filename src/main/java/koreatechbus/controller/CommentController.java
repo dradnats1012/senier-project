@@ -46,4 +46,12 @@ public class CommentController implements CommentApi {
     ) {
         return ResponseEntity.ok().body(commentService.countByPostId(postId));
     }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<String> getUserName(
+        @PathVariable Long userId
+    ){
+        String name = commentService.getUserName(userId);
+        return ResponseEntity.ok().body(name);
+    }
 }
