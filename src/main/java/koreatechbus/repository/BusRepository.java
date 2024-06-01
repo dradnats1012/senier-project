@@ -11,5 +11,5 @@ public interface BusRepository extends JpaRepository<Bus, Long> {
 
     Bus findByBusId(Long busId);
 
-    Bus updateBusByLatitudeAndLongitude(Bus bus, Long latitude, Long longitude);
+    //Bus updateBusByLatitudeAndLongitude(Bus bus, Long latitude, Long longitude);
 }
