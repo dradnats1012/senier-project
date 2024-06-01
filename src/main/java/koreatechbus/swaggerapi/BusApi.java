@@ -37,7 +37,7 @@ public interface BusApi {
 
     @Operation(summary = "특정 버스 위도, 경도 변경")
     @PatchMapping("/{busId}")
-    ResponseEntity<GetBusDTO> getBusById(
+    ResponseEntity<Bus> updatePosition(
         @PathVariable("busId") Long busId,
         @RequestBody BusPositionDTO dto
     );

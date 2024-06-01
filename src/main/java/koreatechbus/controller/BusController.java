@@ -51,6 +51,6 @@ public class BusController implements BusApi {
         @RequestBody BusPositionDTO busPositionDTO
     ) {
         Bus bus = busService.updatePosition(busId, busPositionDTO);
-        return ResponseEntity.ok().body(bus);   
+        return ResponseEntity.ok().body(bus);
     }
 }
