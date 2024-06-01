@@ -33,6 +33,12 @@ public class Bus {
     @Column(name = "bookmark_num")      // 북마크로 등록한 사용자 수
     private Long bookmarkNum;
 
+    @Column(name = "latitude")          // 위도
+    private double latitude;
+
+    @Column(name = "longitude")        // 경도
+    private double longitude;
+
     @Enumerated(value = EnumType.STRING)
     @ElementCollection
     @Column(name = "run_days")
