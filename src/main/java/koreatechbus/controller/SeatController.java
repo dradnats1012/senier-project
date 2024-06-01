@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import koreatechbus.domain.Seat;
 import koreatechbus.dto.seat.ReservationSeatDTO;
 import koreatechbus.service.SeatService;
+import koreatechbus.swaggerapi.SeatApi;
 
 @Controller
 @RequestMapping("seats")
-public class SeatController {
+public class SeatController implements SeatApi {
 
     private final SeatService seatService;
 
