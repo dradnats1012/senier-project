@@ -45,7 +45,7 @@ public class BusController implements BusApi {
         return ResponseEntity.ok().body(busService.getBusById(busId));
     }
 
-    @PatchMapping("/{busId}")
+    @PostMapping("/{busId}")
     public ResponseEntity<Bus> updatePosition(
         @PathVariable Long busId,
         @RequestBody BusPositionDTO busPositionDTO
