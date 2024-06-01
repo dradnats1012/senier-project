@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import koreatechbus.domain.Bus;
 import koreatechbus.dto.bus.BusDTO;
+import koreatechbus.dto.bus.BusPositionDTO;
 import koreatechbus.dto.bus.GetBusDTO;
 import koreatechbus.dto.bus.NewBusDTO;
 import koreatechbus.service.BusService;
@@ -41,5 +43,14 @@ public class BusController implements BusApi {
         @PathVariable("busId") Long busId
     ) {
         return ResponseEntity.ok().body(busService.getBusById(busId));
+    }
+
+    @PatchMapping("/{busId}")
+    public ResponseEntity<Bus> updatePosition(
+        @PathVariable Long busId,
+        @RequestBody BusPositionDTO busPositionDTO
+    ) {
+        Bus bus = busService.updatePosition(busId, busPositionDTO);
+        return ResponseEntity.ok().body(bus);   
     }
 }

@@ -3,6 +3,7 @@ package koreatechbus.service;
 import koreatechbus.domain.Bus;
 import koreatechbus.domain.Station;
 import koreatechbus.dto.bus.BusDTO;
+import koreatechbus.dto.bus.BusPositionDTO;
 import koreatechbus.dto.bus.GetBusDTO;
 import koreatechbus.dto.bus.NewBusDTO;
 import koreatechbus.enums.Days;
@@ -58,5 +59,13 @@ public class BusService {
         List<Station> stations = stationRepository.findStationsByBus(bus);
 
         return GetBusDTO.of(runDays, stations, bus.getLatitude(), bus.getLongitude());
+    }
+
+    public Bus updatePosition(Long busId, BusPositionDTO dto){
+        Bus bus = busRepository.findByBusId(busId);
+
+        busRepository.updateBusByLatitudeAndLongitude(bus, dto.latitude(), dto.longitude());
+        busRepository.save(bus);
+        return bus;
     }
 }
