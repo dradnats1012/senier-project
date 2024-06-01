@@ -57,6 +57,6 @@ public class BusService {
         List<Days> runDays = bus.getRunDays();
         List<Station> stations = stationRepository.findStationsByBus(bus);
 
-        return GetBusDTO.of(runDays, stations);
+        return GetBusDTO.of(runDays, stations, bus.getLatitude(), bus.getLongitude());
     }
 }

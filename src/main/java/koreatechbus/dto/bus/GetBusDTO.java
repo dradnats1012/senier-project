@@ -7,9 +7,11 @@ import koreatechbus.enums.Days;
 
 public record GetBusDTO(
     List<Days> runDays,
-    List<Station> stations
+    List<Station> stations,
+    double latitude,
+    double longitude
 ) {
-    public static GetBusDTO of(List<Days> runDays, List<Station> stations) {
-        return new GetBusDTO(runDays, stations);
+    public static GetBusDTO of(List<Days> runDays, List<Station> stations, double latitude, double longitude) {
+        return new GetBusDTO(runDays, stations, latitude, longitude);
     }
 }
