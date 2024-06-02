@@ -35,7 +35,7 @@ public interface SeatApi {
     );
 
     @Operation(summary = "사용자로 좌석 취소하기")
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("/user/{userId}")
     ResponseEntity<Void> cancelSeatByUserId(
         @PathVariable Long userId
     );

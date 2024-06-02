@@ -50,7 +50,7 @@ public class SeatController implements SeatApi {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("/user/{userId}")
     public ResponseEntity<Void> cancelSeatByUserId(
         @PathVariable Long userId
     ) {
