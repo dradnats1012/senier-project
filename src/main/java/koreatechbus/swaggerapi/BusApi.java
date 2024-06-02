@@ -35,10 +35,10 @@ public interface BusApi {
         @PathVariable("busId") Long busId
     );
 
-    /*@Operation(summary = "특정 버스 위도, 경도 변경")
+    @Operation(summary = "특정 버스 위도, 경도 변경")
     @PatchMapping("/{busId}")
     ResponseEntity<Bus> updatePosition(
         @PathVariable("busId") Long busId,
         @RequestBody BusPositionDTO dto
-    );*/
+    );
 }
