@@ -43,10 +43,18 @@ public class SeatController implements SeatApi {
     }
 
     @DeleteMapping("/{seatId}")
-    public ResponseEntity<Void> cancelSeat(
+    public ResponseEntity<Void> cancelSeatBySeatId(
         @PathVariable Long seatId
     ) {
-        seatService.cancelSeat(seatId);
+        seatService.cancelSeatBySeatId(seatId);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<Void> cancelSeatByUserId(
+        @PathVariable Long userId
+    ) {
+        seatService.cancelByUser(userId);
         return ResponseEntity.noContent().build();
     }
 }

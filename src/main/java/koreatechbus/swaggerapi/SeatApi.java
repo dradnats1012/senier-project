@@ -28,9 +28,15 @@ public interface SeatApi {
     ResponseEntity<Void> reservationSeat(
         @RequestBody ReservationSeatDTO reservationSeatDTO) throws IllegalAccessException;
 
-    @Operation(summary = "좌석 취소하기")
+    @Operation(summary = "좌석ID로 좌석 취소하기")
     @DeleteMapping("/{seatId}")
-    ResponseEntity<Void> cancelSeat(
+    ResponseEntity<Void> cancelSeatBySeatId(
         @PathVariable Long seatId
+    );
+
+    @Operation(summary = "사용자로 좌석 취소하기")
+    @DeleteMapping("/{userId}")
+    ResponseEntity<Void> cancelSeatByUserId(
+        @PathVariable Long userId
     );
 }

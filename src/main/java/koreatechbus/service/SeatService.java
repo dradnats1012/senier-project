@@ -70,12 +70,20 @@ public class SeatService {
         }
     }
 
-    public void cancelSeat(Long seatId){
+    public void cancelSeatBySeatId(Long seatId){
         Seat seat = seatRepository.findBySeatId(seatId);
 
         if(seat.getIsUsed().equals(false)){
             throw new IllegalArgumentException("해당 좌석은 사용중이 아닙니다.");
         }
+
+        seat.cancelSeat();
+        seatRepository.save(seat);
+    }
+
+    public void cancelByUser(Long userId){
+        User user = userRepository.findByUserId(userId);
+        Seat seat = seatRepository.findByUser(user);
 
         seat.cancelSeat();
         seatRepository.save(seat);
