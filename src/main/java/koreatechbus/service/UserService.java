@@ -1,5 +1,6 @@
 package koreatechbus.service;
 
+import static koreatechbus.enums.Role.DRIVER;
 import static koreatechbus.enums.Role.USER;
 
 import java.util.List;
@@ -38,13 +39,22 @@ public class UserService {
         isValidRegister(registerDTO);
 
         String password = hashPassword(registerDTO.password());
+        Role role;
+
+        if (registerDTO.role().equals(2L)) {
+            role = DRIVER;
+        } else if (registerDTO.role().equals(3L)) {
+            role = USER;
+        } else {
+            throw new IllegalArgumentException("유효하지 않은 역할입니다!");
+        }
 
         return userRepository.save(User.builder()
             .schoolId(registerDTO.schoolId())
             .name(registerDTO.name())
             .password(password)
             .email(registerDTO.email())
-            .role(USER)
+            .role(role)
             .build());
     }
 

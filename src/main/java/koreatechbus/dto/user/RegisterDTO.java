@@ -4,7 +4,8 @@ public record RegisterDTO(
     String schoolId,
     String name,
     String password,
-    String email
+    String email,
+    Long role
 ) {
 
 }
