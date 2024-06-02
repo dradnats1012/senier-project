@@ -61,11 +61,12 @@ public class BusService {
         return GetBusDTO.of(runDays, stations, bus.getLatitude(), bus.getLongitude());
     }
 
-    /*public Bus updatePosition(Long busId, BusPositionDTO dto){
+    public Bus updatePosition(Long busId, BusPositionDTO dto) {
         Bus bus = busRepository.findByBusId(busId);
 
-        busRepository.updateBusByLatitudeAndLongitude(bus, dto.latitude(), dto.longitude());
+        busRepository.findByBusId(busId);
+        bus.setPosition(dto.latitude(), dto.longitude());
         busRepository.save(bus);
         return bus;
-    }*/
+    }
 }

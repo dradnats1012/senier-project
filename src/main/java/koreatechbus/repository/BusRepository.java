@@ -10,6 +10,4 @@ public interface BusRepository extends JpaRepository<Bus, Long> {
     List<Bus> findAll();
 
     Bus findByBusId(Long busId);
-
-    //Bus updateBusByLatitudeAndLongitude(Bus bus, Long latitude, Long longitude);
 }

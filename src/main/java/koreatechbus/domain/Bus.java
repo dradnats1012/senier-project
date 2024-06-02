@@ -74,4 +74,9 @@ public class Bus {
         if (bookmarkNum == null)
             bookmarkNum = 0L;
     }
+
+    public void setPosition(Long latitude, Long longitude){
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 }
