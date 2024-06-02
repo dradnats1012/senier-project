@@ -69,4 +69,9 @@ public class BusService {
         busRepository.save(bus);
         return bus;
     }
+
+    public BusPositionDTO getPosition(Long busId){
+        Bus bus = busRepository.findByBusId(busId);
+        return BusPositionDTO.of(bus.getLatitude(), bus.getLongitude());
+    }
 }

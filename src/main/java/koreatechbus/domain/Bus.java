@@ -75,7 +75,7 @@ public class Bus {
             bookmarkNum = 0L;
     }
 
-    public void setPosition(Long latitude, Long longitude){
+    public void setPosition(Double latitude, Double longitude){
         this.latitude = latitude;
         this.longitude = longitude;
     }

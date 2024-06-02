@@ -1,7 +1,10 @@
 package koreatechbus.dto.bus;
 
 public record BusPositionDTO(
-    Long latitude,
-    Long longitude
+    Double latitude,
+    Double longitude
 ) {
+    public static BusPositionDTO of(Double latitude, Double longitude){
+        return new BusPositionDTO(latitude, longitude);
+    }
 }

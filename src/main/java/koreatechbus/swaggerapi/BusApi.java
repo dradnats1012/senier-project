@@ -41,4 +41,10 @@ public interface BusApi {
         @PathVariable("busId") Long busId,
         @RequestBody BusPositionDTO dto
     );
+
+    @Operation(summary = "특정 버스 위도, 경도 가져오기")
+    @GetMapping("/position/{busId}")
+    ResponseEntity<BusPositionDTO> getPosition(
+        @PathVariable("busId") Long busId
+    );
 }
