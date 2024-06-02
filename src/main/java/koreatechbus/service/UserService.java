@@ -41,9 +41,9 @@ public class UserService {
         String password = hashPassword(registerDTO.password());
         Role role;
 
-        if (registerDTO.role().equals(2L)) {
+        if (registerDTO.role().equals(2)) {
             role = DRIVER;
-        } else if (registerDTO.role().equals(3L)) {
+        } else if (registerDTO.role().equals(3)) {
             role = USER;
         } else {
             throw new IllegalArgumentException("유효하지 않은 역할입니다!");
