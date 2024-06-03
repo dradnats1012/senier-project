@@ -3,6 +3,7 @@ package koreatechbus.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,5 +57,10 @@ public class SeatController implements SeatApi {
     ) {
         seatService.cancelByUser(userId);
         return ResponseEntity.noContent().build();
+    }
+
+    @Scheduled(cron = "0 1 0 * * *")
+    public void endExpiredSeat() {
+        seatService.resetSeat();
     }
 }

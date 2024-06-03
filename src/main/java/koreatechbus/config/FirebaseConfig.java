@@ -1,3 +1,4 @@
+/*
 package koreatechbus.config;
 
 import java.io.FileNotFoundException;
@@ -35,3 +36,4 @@ public class FirebaseConfig {
         }
     }
 }
+*/

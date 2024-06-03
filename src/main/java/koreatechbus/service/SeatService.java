@@ -25,7 +25,7 @@ public class SeatService {
         this.userRepository = userRepository;
     }
 
-    public List<Seat> getSeatsByBus(Long busId){
+    public List<Seat> getSeatsByBus(Long busId) {
         Bus bus = busRepository.findByBusId(busId);
 
         return seatRepository.findAllByBus(bus);
@@ -65,15 +65,15 @@ public class SeatService {
 
         Seat seat = seatRepository.findByBusAndSeatNum(bus, dto.seatNum());
 
-        if(seat.getIsUsed().equals(true)){
+        if (seat.getIsUsed().equals(true)) {
             throw new IllegalStateException("이미 사용중인 좌석입니다!");
         }
     }
 
-    public void cancelSeatBySeatId(Long seatId){
+    public void cancelSeatBySeatId(Long seatId) {
         Seat seat = seatRepository.findBySeatId(seatId);
 
-        if(seat.getIsUsed().equals(false)){
+        if (seat.getIsUsed().equals(false)) {
             throw new IllegalArgumentException("해당 좌석은 사용중이 아닙니다.");
         }
 
@@ -81,11 +81,20 @@ public class SeatService {
         seatRepository.save(seat);
     }
 
-    public void cancelByUser(Long userId){
+    public void cancelByUser(Long userId) {
         User user = userRepository.findByUserId(userId);
         Seat seat = seatRepository.findByUser(user);
 
         seat.cancelSeat();
         seatRepository.save(seat);
+    }
+
+    public void resetSeat() {
+        List<Seat> usedSeats = seatRepository.findByIsUsedIsTrue();
+
+        for (Seat seat : usedSeats) {
+            seat.cancelSeat();
+            seatRepository.save(seat);
+        }
     }
 }

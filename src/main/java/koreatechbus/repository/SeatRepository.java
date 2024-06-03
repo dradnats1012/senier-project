@@ -21,4 +21,6 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
     Seat findBySeatId(Long seatId);
 
     Seat findByUser(User user);
+
+    List<Seat> findByIsUsedIsTrue();
 }
