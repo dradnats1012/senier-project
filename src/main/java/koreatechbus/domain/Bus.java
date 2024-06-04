@@ -36,8 +36,11 @@ public class Bus {
     @Column(name = "latitude")          // 위도
     private double latitude;
 
-    @Column(name = "longitude")        // 경도
+    @Column(name = "longitude")         // 경도
     private double longitude;
+
+    @Column(name = "is_run", columnDefinition = "boolean default false")            // 운행여부
+    private Boolean isRun = false;
 
     @Enumerated(value = EnumType.STRING)
     @ElementCollection
@@ -73,10 +76,15 @@ public class Bus {
             passengers = 0L;
         if (bookmarkNum == null)
             bookmarkNum = 0L;
+        isRun = false;
     }
 
     public void setPosition(Double latitude, Double longitude){
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    public void setIsRun(Boolean isRun){
+        this.isRun = isRun;
     }
 }

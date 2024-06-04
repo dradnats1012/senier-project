@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import koreatechbus.domain.Bus;
@@ -59,5 +60,14 @@ public class BusController implements BusApi {
         @PathVariable Long busId
     ) {
         return ResponseEntity.ok().body(busService.getPosition(busId));
+    }
+
+    @PatchMapping("/{busId}/run")
+    public ResponseEntity<Void> updateIsRun(
+        @PathVariable Long busId,
+        @RequestParam Boolean isRun
+    ){
+        busService.changeIsRun(busId, isRun);
+        return ResponseEntity.ok().build();
     }
 }

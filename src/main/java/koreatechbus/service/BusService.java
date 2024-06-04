@@ -74,4 +74,11 @@ public class BusService {
         Bus bus = busRepository.findByBusId(busId);
         return BusPositionDTO.of(bus.getLatitude(), bus.getLongitude());
     }
+
+    public void changeIsRun(Long busId, boolean isRun){
+        Bus bus = busRepository.findByBusId(busId);
+
+        bus.setIsRun(isRun);
+        busRepository.save(bus);
+    }
 }
