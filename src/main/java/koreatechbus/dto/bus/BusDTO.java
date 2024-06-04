@@ -1,15 +1,10 @@
 package koreatechbus.dto.bus;
 
-import java.util.List;
-
-import koreatechbus.domain.Station;
-import koreatechbus.enums.Days;
-
 public record BusDTO(
     Long busId,
-    String busName
-) {
-    public static BusDTO of(Long busId, String busName) {
-        return new BusDTO(busId, busName);
+    String busName,
+    Boolean isRun) {
+    public static BusDTO of(Long busId, String busName, Boolean isRun) {
+        return new BusDTO(busId, busName, isRun);
     }
 }

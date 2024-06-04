@@ -32,7 +32,7 @@ public class BusService {
         List<BusDTO> busDTOS = new ArrayList<>();
 
         for (Bus bus : buses) {
-            busDTOS.add(BusDTO.of(bus.getBusId(), bus.getName()));
+            busDTOS.add(BusDTO.of(bus.getBusId(), bus.getName(), bus.getIsRun()));
         }
 
         return busDTOS;
